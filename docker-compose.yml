@@ -2,13 +2,12 @@ version: '3.4'
 
 services:
   lachesis:
-    image: lachesis
-    build:
-      context: .
+    image: doublesharp/fantom-lachesis:latest
     restart: always
     ports:
       - '5050:5050'
       - '5050:5050/udp'
+      - '18545:18545'
     volumes:
       - lachesis:/root/.lachesis
 

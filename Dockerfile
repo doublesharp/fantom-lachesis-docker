@@ -25,14 +25,17 @@ FROM alpine:latest as lachesis
 # copy the binary 
 COPY --from=build-stage /usr/local/bin/lachesis /usr/local/bin/lachesis
 
+COPY run.sh /usr/local/bin
+
 WORKDIR /root
 
 ENV LACHESIS_PORT=5050
-ENV LACHESIS_HTTP=4000 
+ENV LACHESIS_HTTP=18545
+ENV LACHESIS_API=eth,ftm,debug,admin,web3,personal,net,txpool
 
 EXPOSE ${LACHESIS_PORT}
 EXPOSE ${LACHESIS_HTTP}
 
 VOLUME [ "/root/.lachesis" ]
 
-CMD ["sh", "-c", "lachesis --nousb --port ${LACHESIS_PORT}  --http --http.port ${LACHESIS_HTTP} --verbosity 3"]
+CMD ["run.sh"]
