@@ -10,6 +10,8 @@ services:
       - '18545:18545'
     volumes:
       - lachesis:/root/.lachesis
+    environment:
+      LACHESIS_VERBOSITY: 2
 
 volumes:
   lachesis: {}

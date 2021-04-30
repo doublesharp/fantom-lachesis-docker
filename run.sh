@@ -9,4 +9,4 @@ lachesis \
   --http.port ${LACHESIS_HTTP} \
   --http.api "${LACHESIS_API}" \
   --nousb \
-  --verbosity 3
+  --verbosity ${LACHESIS_VERBOSITY}
