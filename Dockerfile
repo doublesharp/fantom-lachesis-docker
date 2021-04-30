@@ -27,8 +27,8 @@ COPY --from=build-stage /usr/local/bin/lachesis /usr/local/bin/lachesis
 
 WORKDIR /root
 
-ENV LACHESIS_PORT=4000 
-ENV LACHESIS_HTTP=5050
+ENV LACHESIS_PORT=5050
+ENV LACHESIS_HTTP=4000 
 
 EXPOSE ${LACHESIS_PORT}
 EXPOSE ${LACHESIS_HTTP}
