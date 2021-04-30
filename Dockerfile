@@ -12,9 +12,8 @@ RUN set -xe; \
   git make musl-dev go linux-headers; \
   # install fantom lachesis from github
   mkdir -p ${GOPATH}; cd ${GOPATH}; \
-  git clone https://github.com/Fantom-foundation/go-lachesis.git; \
+  git clone --single-branch --branch ${LACHESIS_VERSION} https://github.com/Fantom-foundation/go-lachesis.git; \
   cd go-lachesis; \
-  git checkout ${LACHESIS_VERSION}; \
   make build -j$(nproc); \
   # remove our build dependencies
   apk del .build-deps; 
