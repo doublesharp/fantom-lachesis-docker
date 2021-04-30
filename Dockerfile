@@ -20,9 +20,12 @@ RUN set -xe; \
 
 WORKDIR /root
 
-EXPOSE 4000
-EXPOSE 5050
+ENV LACHESIS_PORT=4000 
+ENV LACHESIS_HTTP=5050
+
+EXPOSE ${LACHESIS_PORT}
+EXPOSE ${LACHESIS_HTTP}
 
 VOLUME [ "/root/.lachesis" ]
 
-CMD ["lachesis", "--nousb", "--port", "4000", "--http.port", "5050", "--verbosity", "3", "--http"]
+CMD ["sh", "-c", "lachesis --nousb --port ${LACHESIS_PORT}  --http --http.port ${LACHESIS_HTTP} --verbosity 3"]

@@ -2,7 +2,9 @@ version: '3.4'
 
 services:
   lachesis:
-    image: doublesharp/fantom-lachesis:latest
+    image: lachesis
+    build:
+      context: .
     restart: always
     ports:
       - '5050:5050'
