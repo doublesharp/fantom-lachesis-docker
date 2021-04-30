@@ -14,5 +14,5 @@ docker-compose logs -f
 docker-compose run lachesis ash
  
 # connect to the container
-docker exec -it $(docker ps -q) ash
+docker exec -it $(docker ps --filter "name=lachesis" -q) ash
 ```
